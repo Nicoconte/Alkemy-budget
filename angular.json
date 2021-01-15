@@ -62,7 +62,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "alkemy-budget:build"
+            "browserTarget": "alkemy-budget:build",
+            "proxyConfig": "./proxy-config.json"
           },
           "configurations": {
             "production": {
@@ -119,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "alkemy-budget"
+    }
+  },
+  "defaultProject": "alkemy-budget",
+  "cli": {
+    "analytics": false
+  }
 }

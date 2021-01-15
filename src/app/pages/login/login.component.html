@@ -1,0 +1,61 @@
+<div class="login-container">
+
+    <div class="login-left-side">
+
+        <div class="login-left-side-filter">
+            <div class="login-left-side-text">
+                <h1>🚀</h1>
+                <h3>Welcome</h3>
+                <h6>Manage your budget with us</h6>
+            </div>
+
+            <div class="login-left-side-about">
+                <ul>
+                    <li>Add money to your account</li>
+                    <li>Take care of your money</li>
+                    <li>Keep an eye on your activities</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="login-right-side">  
+
+        <div class="login-right-side-header">
+            <h5>Sign in <span class="text-muted">/ Sign up</span></h5>
+        </div>
+
+        <div class="login-right-side-body">
+                 
+            <form [formGroup]="userForm">
+                <div class="input-container">
+                    <div class="input-logo">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <div class="form-input">
+                        <input formControlName="username" type="text" class="form-control" placeholder="Username">
+                    </div>
+                </div>
+                <div class="input-container">
+                    <div class="input-logo">
+                        <i class="fa fa-key"></i>
+                    </div>
+                    <div class="form-input">
+                        <input formControlName="password" type="password" class="form-control" placeholder="Password">
+                    </div>
+                </div>
+            </form>
+            
+        </div>
+
+        <div class="login-right-side-footer">
+            <div class="login-button">
+                <button (click)="login()" class="btn" [disabled]="!userForm.valid"> Login </button>
+                <a [routerLink]="['/sign-up']" >Don´t have an account? Just sign up!</a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
