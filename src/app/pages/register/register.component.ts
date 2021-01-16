@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';  
 
 import { UserService } from '../../service/user.service';
+import { LocalStorageService } from "../../service/local-storage.service";
 
 @Component({
   selector: 'app-register',
@@ -15,7 +16,7 @@ export class RegisterComponent implements OnInit {
   private email : String;
   private password : String;
 
-  constructor(private userService : UserService, private router : Router) { }
+  constructor(private userService : UserService, private localStorageService : LocalStorageService, private router : Router) { }
 
   ngOnInit(): void {
     if (this.userService.isAuthenticated()) {
@@ -51,9 +52,10 @@ export class RegisterComponent implements OnInit {
     }
 
     this.userService.addUser(body).subscribe(res => {
-      localStorage.setItem('token', res.key)
-      localStorage.setItem('username', res.username);
-      if (localStorage.getItem('token') !== null) 
+      this.localStorageService.set('token', res.key)
+      this.localStorageService.set('username', res.username);
+      
+      if (this.localStorageService.get('token') !== null) 
         return this.router.navigate(['/home/preview'])
     })
 

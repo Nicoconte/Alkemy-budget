@@ -18,8 +18,6 @@ export class HomeComponent implements OnInit {
       this.router.navigate(["/sign-in"])
     }
   
-    console.log("=> " + localStorage.getItem('token'))
-  
   }
 
 

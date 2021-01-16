@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
+
+import { LocalStorageService } from "./local-storage.service";
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +10,7 @@ export class UserService {
 
   private baseUrl : String = "/alkemy-budget/api/v1/users"
 
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient, private localStorageService : LocalStorageService) { }
 
   public authUser(params : any, url : any) {
     return this.http.post<any>(`${this.baseUrl}/${url}`, params);
@@ -19,7 +21,7 @@ export class UserService {
   }
 
   public isAuthenticated() {
-    return localStorage.getItem('token') === null ? false : true;
+    return this.localStorageService.get('token') === null ? false : true;
   }
 
 }

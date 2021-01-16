@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router' 
 
 import { UserService } from '../../service/user.service'; 
+import { LocalStorageService } from "../../service/local-storage.service";
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   private username : String;
   private password : String;
 
-  constructor(private userService : UserService, private router : Router) { }
+  constructor(private userService : UserService, private localStorageService : LocalStorageService, private router : Router) { }
 
   ngOnInit(): void {
 
@@ -42,10 +43,11 @@ export class LoginComponent implements OnInit {
     }
 
     this.userService.authUser(body, 'auth/').subscribe(res => { 
-      localStorage.setItem('token', res.key);
-      localStorage.setItem('username', res.username);
-    
-      if (localStorage.getItem('token') !== null) {
+
+      this.localStorageService.set('token', res.key);
+      this.localStorageService.set('username', res.username);
+
+      if (this.localStorageService.get('token') !== null) {
         return this.router.navigate(['home/preview'])    
       } 
 
