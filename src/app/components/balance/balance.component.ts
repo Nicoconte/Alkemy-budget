@@ -11,14 +11,14 @@ export class BalanceComponent implements OnInit {
 
   constructor(private balanceService : BalanceService) { }
 
-  money : number;
+  public money : number;
 
   ngOnInit(): void {
-  
-    this.balanceService.getBalance().subscribe(res => {
-      this.money = res.total_money
-    })     
-  
+    this.money = 0;
+    setTimeout(() => {
+      this.balanceService.getBalance().subscribe(res => { 
+        this.money = res.total_money
+      })
+    }, 1500)
   }
-
 }

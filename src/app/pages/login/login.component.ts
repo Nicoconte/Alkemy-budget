@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
 
     if (this.userService.isAuthenticated()) {
-      this.router.navigate(["/home/preview"])
+      //this.router.navigate(["/home/preview"])
     }
   }
 
@@ -43,10 +43,8 @@ export class LoginComponent implements OnInit {
     }
 
     this.userService.authUser(body, 'auth/').subscribe(res => { 
-      localStorage.setItem('token', res.key);
-      localStorage.setItem('username', res.username);
-    
-      if (localStorage.getItem('token') !== null) {
+      sessionStorage.setItem('token', res.key)
+      if (sessionStorage['token'] !== null) {
         this.router.navigate(['/home/preview']);
       }
     

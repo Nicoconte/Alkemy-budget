@@ -3,6 +3,7 @@ import { Router } from '@angular/router'
 
 import { UserService } from '../../service/user.service'; 
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -18,7 +19,7 @@ export class HomeComponent implements OnInit {
       this.router.navigate(["/sign-in"])
     }
 
-    console.log("=> " + localStorage.getItem('token'))
+    console.log("Token en el home => ") //+ this.tokenService.getToken())
 
   }
 

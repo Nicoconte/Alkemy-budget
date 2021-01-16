@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ export class UserService {
   }
 
   public isAuthenticated() {
-    return localStorage.getItem('token') === null ? false : true;
+    return sessionStorage['token'] === null ? false : true;
   }
 
 }

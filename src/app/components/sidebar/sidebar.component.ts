@@ -1,6 +1,6 @@
+import { Token } from '@angular/compiler/src/ml_parser/lexer';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
- 
 
 @Component({
   selector: 'app-sidebar',
@@ -14,14 +14,14 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {}
   
   public logout() {
-    return new Promise((resolve) => {
-      alert("Cerrando sesion")
-      setTimeout(() => {
-        resolve(localStorage.removeItem('token'));
-      }, 1500)
-    }).then(() => {
-      this.router.navigate(['/sign-in'])
-    })
+    console.log("Token al cerrar sesion => " + sessionStorage['token'])
+    alert("Cerrando sesion");
+
+    sessionStorage.removeItem('token')
+    sessionStorage.clear()
+
+    this.router.navigate(['/sign-in'])
+
   }
     
 

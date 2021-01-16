@@ -6,17 +6,18 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class OperationService {
 
-  private baseUrl : String = "/alkemy-budget/api/v1/operations";
-  
-  private token : String = localStorage.getItem('token');
-
   constructor(private http : HttpClient) { }
 
+  private baseUrl : String = "/alkemy-budget/api/v1/operations";
+  private token : String = sessionStorage['token'];
+
   public listOperations() {
+    console.log("Token al pedir todas las operaciones => " + this.token)
     return this.http.get<any>(`${this.baseUrl}/all`, { headers : new HttpHeaders({ "Authorization" : `Token ${this.token}` }) })
   }
 
   public listLatestOperations() {
+    console.log("Token al pedir todas las operaciones => " + this.token)
     return this.http.get<any>(`${this.baseUrl}/latest/`, { headers : new HttpHeaders({ "Authorization" : `Token ${this.token}` }) })
   }
 

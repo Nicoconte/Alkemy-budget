@@ -20,6 +20,12 @@ export class OperationListComponent implements OnInit {
   constructor(private operationService : OperationService) { }
 
   ngOnInit(): void {
+    console.log("Token al pedir las operaciones => " + sessionStorage['token'])
+
+    this.operations.length = 0;
+    
+    console.log("Lista antes de la instancia => " + this.operations)
+
     switch(this.operationQuantity) {
       case "partials":
         this.getLastTenOperations();
@@ -28,6 +34,8 @@ export class OperationListComponent implements OnInit {
         this.getAllOperations();
         break;
     }
+
+    console.log("Lista pos instancia => " + this.operations)
   }
 
   public getAllOperations() {

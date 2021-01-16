@@ -50,10 +50,12 @@ export class RegisterComponent implements OnInit {
     }
 
     this.userService.addUser(body).subscribe(res => {
-      localStorage.setItem('token', res.key)
-      localStorage.setItem('username', res.username);
-      if (localStorage.getItem('token') !== null) 
+      sessionStorage.setItem('token', res.key);
+
+      if (sessionStorage['token'] !== null) {
         this.router.navigate(['/home/preview'])
+      }
+    
     })
 
   }
