@@ -39,6 +39,7 @@ export class RegisterComponent implements OnInit {
 
 
   public register() {
+
     this.username = this.userForm.value.username;
     this.email = this.userForm.value.email;
     this.password = this.userForm.value.password;
@@ -53,7 +54,7 @@ export class RegisterComponent implements OnInit {
       localStorage.setItem('token', res.key)
       localStorage.setItem('username', res.username);
       if (localStorage.getItem('token') !== null) 
-        this.router.navigate(['/home/preview'])
+        return this.router.navigate(['/home/preview'])
     })
 
   }

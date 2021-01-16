@@ -17,7 +17,7 @@ export class SidebarComponent implements OnInit {
     return new Promise((resolve) => {
       alert("Cerrando sesion")
       setTimeout(() => {
-        resolve(localStorage.removeItem('token'));
+        resolve(window.localStorage.clear());
       }, 1500)
     }).then(() => {
       this.router.navigate(['/sign-in'])

@@ -31,9 +31,8 @@ export class LoginComponent implements OnInit {
       Validators.required,
     ])
   })
-
-
   public login() {
+  
     this.username = this.userForm.value.username;
     this.password = this.userForm.value.password; 
          
@@ -47,12 +46,13 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('username', res.username);
     
       if (localStorage.getItem('token') !== null) {
-        this.router.navigate(['/home/preview']);
-      }
-    
+        return this.router.navigate(['home/preview'])    
+      } 
+
     }, (error) => {
       alert("Invalid credentials")
       this.userForm.reset()
+    
     })
   }
 
