@@ -1,0 +1,45 @@
+.operation-container {
+    width:100%;
+    height:100%;
+}
+
+.operation-form {
+    width:100%;
+    height:90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.operation-form form {
+    width:100%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.input-container {
+    height: 9%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    margin-right:20px;
+}
+
+
+.form-input {
+    width: 75%;
+}
+
+.input-logo i {
+    margin-bottom: 5px;
+}
+
+.operation-form button {
+    width: 75%;
+    margin-top:25px;
+    margin-left:20px;
+}

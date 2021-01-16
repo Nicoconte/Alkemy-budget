@@ -14,6 +14,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { HomePreviewComponent } from './components/home-preview/home-preview.component';
+import { MyActivitiesComponent } from './components/my-activities/my-activities.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { RegisterComponent } from './pages/register/register.component';
     HomeComponent,
     LoginComponent,
     ErrorPageComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomePreviewComponent,
+    MyActivitiesComponent
   ],
   imports: [
     BrowserModule,

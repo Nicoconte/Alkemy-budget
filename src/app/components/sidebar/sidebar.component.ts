@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+ 
 
 @Component({
   selector: 'app-sidebar',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router : Router) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+  
+  public logout() {
+    return new Promise((resolve) => {
+      alert("Cerrando sesion")
+      setTimeout(() => {
+        resolve(localStorage.removeItem('token'));
+      }, 1500)
+    }).then(() => {
+      this.router.navigate(['/sign-in'])
+    })
   }
+    
+
 
 }

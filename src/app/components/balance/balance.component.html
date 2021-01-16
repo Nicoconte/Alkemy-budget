@@ -1,1 +1,11 @@
-<p>balance works!</p>
+<div class="balance-container">
+    <div class="balance-header">
+        <span> <i class="fa fa-money"></i> Available money</span>
+    </div>
+    <div class="balance-body">
+        <span id="balance-money">${{money.toFixed(2)}}</span>
+    </div> 
+    <div class="balance-footer">
+        <a routerLink="../new-operation" class="btn">Perform operation</a>
+    </div>
+</div>

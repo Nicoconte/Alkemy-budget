@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.userService.isAuthenticated()) {
-      this.router.navigate(['/home'])
+      this.router.navigate(['/home/preview'])
     }
   }
 
@@ -51,8 +51,9 @@ export class RegisterComponent implements OnInit {
 
     this.userService.addUser(body).subscribe(res => {
       localStorage.setItem('token', res.key)
+      localStorage.setItem('username', res.username);
       if (localStorage.getItem('token') !== null) 
-        this.router.navigate(['/home'])
+        this.router.navigate(['/home/preview'])
     })
 
   }

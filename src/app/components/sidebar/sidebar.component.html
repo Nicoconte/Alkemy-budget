@@ -1,1 +1,45 @@
-<p>sidebar works!</p>
+<div class="sidebar-container">
+    <div class="sidebar-buttons">
+        <div class="button-container">
+            <a class="btn" routerLink="preview">
+                <div class="button-logo">
+                    <i class="fa fa-home"></i>
+                </div>
+                <div class="button-text">
+                    <span>Home</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="button-container">
+            <a class="btn" routerLink="my-activities">
+                <div class="button-logo">
+                    <i class="fa fa-check-circle-o"></i>
+                </div>
+                <div class="button-text">
+                    <span>My activities</span>
+                </div>
+            </a>
+        </div>
+        <div class="button-container">
+            <a class="btn" routerLink="new-operation">
+                <div class="button-logo">
+                    <i class="fa fa-shopping-cart"></i>
+                </div>
+                <div class="button-text">
+                    <span>Perform operation</span>
+                </div>
+            </a>
+        </div>
+        <div class="button-container">
+            <a class="btn" (click)="logout()">
+                <div class="button-logo">
+                    <i class="fa fa-times"></i>
+                </div>
+                <div class="button-text">
+                    <span>Logout</span>
+                </div>
+            </a>
+        </div>                                
+    </div>
+</div>

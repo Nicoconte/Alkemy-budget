@@ -15,14 +15,11 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
 
     if (!this.userService.isAuthenticated()) {
-      this.router.navigate(["/sign-up"])
+      this.router.navigate(["/sign-in"])
     }
 
-  }
+    console.log("=> " + localStorage.getItem('token'))
 
-
-  public logout() {
-    localStorage.removeItem('token')
   }
 
 }

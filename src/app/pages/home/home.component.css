@@ -1,6 +1,8 @@
 .home-container {
     width:100%;
     height:100%;
+    font-family: 'Work Sans', sans-serif;
+    background-color: rgb(240, 238, 238);
 }
 
 .home-navbar {
@@ -16,44 +18,11 @@
 }
 
 .home-sidebar {
-    width:20%;
+    width:18%;
     height:100%;
-    background-color: cyan;
 }
 
 .home {
-    width:80%;
+    width:82%;
     height: 100%;
-}
-
-.home-balance {
-    width:45%;
-    height:100%;
-    background-color: red;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-}
-
-.balance {
-    width: 80%;
-    height: 35%;
-    background-color: blue;
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
-}
-
-.balance-operation {
-    width:100%;
-    height:30%;
-    background-color: black;
-}
-
-.home-activities {
-    width:55%;
-    height:100%;
-    background-color: beige;
 }

@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
 
     if (this.userService.isAuthenticated()) {
-      this.router.navigate(["/home"])
+      this.router.navigate(["/home/preview"])
     }
   }
 
@@ -44,8 +44,15 @@ export class LoginComponent implements OnInit {
 
     this.userService.authUser(body, 'auth/').subscribe(res => { 
       localStorage.setItem('token', res.key);
-      if (localStorage.getItem('token') !== null)
-        this.router.navigate(['/home'])
+      localStorage.setItem('username', res.username);
+    
+      if (localStorage.getItem('token') !== null) {
+        this.router.navigate(['/home/preview']);
+      }
+    
+    }, (error) => {
+      alert("Invalid credentials")
+      this.userForm.reset()
     })
   }
 

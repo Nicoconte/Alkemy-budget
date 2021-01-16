@@ -1,1 +1,24 @@
-<p>operation-list works!</p>
+<div class="operation-list-container">
+    <div class="operation-list-header">
+        <h5> <i class="fa fa-book"></i> {{headerTitle}}</h5>
+    </div>
+    <div class="operation-list">
+        <div class="operation-item" *ngFor="let op of operations" id="{{op.id}}">
+            <div class="operation-concept">
+                <span title="{{op.concept}}"> 
+                    <button (click)="cancelOperation(op.id)" class="btn btn-sm btn-danger mr-3"> <i class="fa fa-trash"></i> </button>
+                    {{op.concept | slice:0:30}}
+                </span>
+            </div>
+            <div class="operation-info">
+                <div class="operation-money">
+                    <span *ngIf="op.type=='egreso'">- ${{op.money}}</span>
+                    <span *ngIf="op.type=='ingreso'">+ ${{op.money}}</span>
+                </div>
+                <div class="operation-date">
+                    <span>{{op.date}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
