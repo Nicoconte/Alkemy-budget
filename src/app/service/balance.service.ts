@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import { LocalStorageService } from "./local-storage.service";
+
 @Injectable({
   providedIn: 'root'
 })
@@ -8,15 +10,12 @@ export class BalanceService {
 
   private baseUrl : String = "/alkemy-budget/api/v1/balance/";
   
-  private token : String = sessionStorage['token'];
-
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient, private localStorageService : LocalStorageService) { }
 
   public getBalance() {
-    console.log("Token en el servicio de balance => " + this.token)
     return this.http.get<any>(`${this.baseUrl}`, {
       headers : new HttpHeaders({
-        "Authorization" : `Token ${this.token}`
+        "Authorization" : `Token ${this.localStorageService.get('token')}`
       })
     });
   }

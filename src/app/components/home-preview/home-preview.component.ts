@@ -9,8 +9,6 @@ export class HomePreviewComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-    console.log("Instanciado")
-  }
+  ngOnInit(): void { }
 
 }

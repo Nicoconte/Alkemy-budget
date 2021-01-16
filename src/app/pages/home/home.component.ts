@@ -18,9 +18,8 @@ export class HomeComponent implements OnInit {
     if (!this.userService.isAuthenticated()) {
       this.router.navigate(["/sign-in"])
     }
-
-    console.log("Token en el home => ") //+ this.tokenService.getToken())
-
+  
   }
+
 
 }

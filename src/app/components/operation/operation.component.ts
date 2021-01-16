@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
- 
+import { Router } from '@angular/router'; 
+
 import { OperationService } from '../../service/operation.service';
 
 @Component({
@@ -21,7 +22,7 @@ export class OperationComponent implements OnInit {
     {"value" : "egreso", "msg" : "Spend money"}
   ]
 
-  constructor(private operationService : OperationService) { }
+  constructor(private operationService : OperationService, private router : Router) { }
 
   ngOnInit(): void {
   }
@@ -56,6 +57,7 @@ export class OperationComponent implements OnInit {
     this.operationService.saveOperation(body).subscribe(res => {
       if (res.success)
         alert("The operation was made successfully")
+        this.router.navigate(['home/preview']);
     })
 
   }  

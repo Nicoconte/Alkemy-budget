@@ -2,6 +2,8 @@ import { Token } from '@angular/compiler/src/ml_parser/lexer';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { LocalStorageService } from "../../service/local-storage.service";
+
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -9,19 +11,19 @@ import { Router } from '@angular/router';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor(private router : Router) { }
+  constructor(private router : Router, private localStorageService : LocalStorageService) { }
 
   ngOnInit(): void {}
   
   public logout() {
-    console.log("Token al cerrar sesion => " + sessionStorage['token'])
-    alert("Cerrando sesion");
-
-    sessionStorage.removeItem('token')
-    sessionStorage.clear()
-
-    this.router.navigate(['/sign-in'])
-
+    return new Promise((resolve) => {
+      alert("Cerrando sesion")
+      setTimeout(() => {
+        resolve(this.localStorageService.destroy());
+      }, 1500)
+    }).then(() => {
+      this.router.navigate(['/sign-in'])
+    })
   }
     
 

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { LocalStorageService } from '../../service/local-storage.service';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -9,10 +11,10 @@ export class NavbarComponent implements OnInit {
 
   username : String;
 
-  constructor() { }
+  constructor(private localStorageService : LocalStorageService) { }
 
   ngOnInit(): void {
-    this.username = localStorage.getItem('username');
+    this.username = this.localStorageService.get('username');
   }
 
 }

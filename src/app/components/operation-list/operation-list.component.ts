@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
+ 
 import { OperationService } from '../../service/operation.service'
 import { Operation } from "../../models/OperationModel";
 
@@ -17,15 +18,13 @@ export class OperationListComponent implements OnInit {
 
   operations : Operation[] = new Array();
  
-  constructor(private operationService : OperationService) { }
+  constructor(private operationService : OperationService, private router : Router) { }
 
   ngOnInit(): void {
-    console.log("Token al pedir las operaciones => " + sessionStorage['token'])
+    this.swithListing()
+  }
 
-    this.operations.length = 0;
-    
-    console.log("Lista antes de la instancia => " + this.operations)
-
+  public swithListing() {
     switch(this.operationQuantity) {
       case "partials":
         this.getLastTenOperations();
@@ -33,9 +32,7 @@ export class OperationListComponent implements OnInit {
       case "all":
         this.getAllOperations();
         break;
-    }
-
-    console.log("Lista pos instancia => " + this.operations)
+    }    
   }
 
   public getAllOperations() {
@@ -58,6 +55,7 @@ export class OperationListComponent implements OnInit {
     this.operationService.deleteOperation(id).subscribe(res => {
       if (res.success)
         alert("The operations was canceled successfully")
+        this.router.navigate(['./'])
     })
   }
 
