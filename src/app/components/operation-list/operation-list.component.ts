@@ -54,7 +54,7 @@ export class OperationListComponent implements OnInit {
   public cancelOperation(id : any) {
     this.operationService.deleteOperation(id).subscribe(res => {
       if (res.success)
-        alert("The operations was canceled successfully")
+        alert("The operations was successfully canceled")
         this.router.navigate(['./'])
     })
   }

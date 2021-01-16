@@ -19,6 +19,6 @@ export class BalanceComponent implements OnInit {
       this.balanceService.getBalance().subscribe(res => { 
         this.money = res.total_money
       })
-    }, 1500)
+    }, 300)
   }
 }

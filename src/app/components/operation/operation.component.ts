@@ -56,7 +56,7 @@ export class OperationComponent implements OnInit {
 
     this.operationService.saveOperation(body).subscribe(res => {
       if (res.success)
-        alert("The operation was made successfully")
+        alert("The operation was successful")
         this.router.navigate(['home/preview']);
     })
 

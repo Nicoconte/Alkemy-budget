@@ -17,10 +17,10 @@ export class SidebarComponent implements OnInit {
   
   public logout() {
     return new Promise((resolve) => {
-      alert("Cerrando sesion")
+      alert("Closing session")
       setTimeout(() => {
         resolve(this.localStorageService.destroy());
-      }, 1500)
+      }, 800)
     }).then(() => {
       this.router.navigate(['/sign-in'])
     })
