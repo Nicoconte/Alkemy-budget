@@ -2,7 +2,7 @@
     "/alkemy-budget/api/v1/" : {
         "target" : "https://alkemy-budget-api.herokuapp.com",
         "logLevel" : "debug",
-        "changeOrigin" : true,
+        "changeOrigin" : false,
         "secure" : false
     } 
 }
